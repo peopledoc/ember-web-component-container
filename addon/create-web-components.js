@@ -15,7 +15,7 @@ function _appendStyles(dest, styles) {
 }
 
 class ApplicationContainer extends HTMLElement {
-  #styles = (config.webComponentsAssets || {}).styles
+  #styles = (config.webComponentsAssets || {}).css
   #shadowRoot
   #application
 
