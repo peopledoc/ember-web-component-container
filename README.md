@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="./logo.png" alt="Logo of the addon"/>
+</p>
+
 ember-web-component-container
 ==============================================================================
 
