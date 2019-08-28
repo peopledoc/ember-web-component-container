@@ -62,11 +62,3 @@ if (-1 === config.modulePrefix.indexOf('-')) {
 }
 
 customElements.define(componentName, ApplicationContainer)
-
-
-/**
- * TODO
- *    RECOMMEND to remove export-application-global
- *    Attributes and slots
- *    More isolation
- */

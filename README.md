@@ -1,8 +1,8 @@
 ember-web-component-container
 ==============================================================================
 
-[Short description of the addon.]
-
+This addon exposes your Ember app as a standard WebComponent,
+which makes it much easier to integrate in existing applications.
 
 Compatibility
 ------------------------------------------------------------------------------
@@ -23,13 +23,29 @@ ember install ember-web-component-container
 Usage
 ------------------------------------------------------------------------------
 
-[Longer description of how to use the addon in apps.]
+Once the addon is installed, you can remove the `<link>` tags fron your `index.html`.
 
+The CustomElement that is created is the dasherised version of the application name:
+If your app is `my-devilish-venture`, add `<my-devilish-venture></my-devilish-venture>`
+to your `index.html` to start the app.
+
+**note**: CustomElement MUST be dasherized names. In case your application
+is single-worded (as in "mononoke"), the addon will expose
+`mononoke-app` (Note the `-app` prefix) for compliance.
+
+**note**: We aso recommend that you remove the addon `export-application-global`.
+The application itself is accessible from the Custom Element itself as follows:
+`document.querySelector("my-devilish-venture").__EMBER_APPLICATION`
 
 Contributing
 ------------------------------------------------------------------------------
 
 See the [Contributing](CONTRIBUTING.md) guide for details.
+
+### TODO
+
+*    Deal with attributes and slots
+*    JS isolation
 
 
 License
