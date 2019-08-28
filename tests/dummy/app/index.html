@@ -9,8 +9,21 @@
 
     {{content-for "head"}}
 
-    <link integrity="" rel="stylesheet" href="{{rootURL}}assets/vendor.css">
-    <link integrity="" rel="stylesheet" href="{{rootURL}}assets/dummy.css">
+    <style>
+      h2 {
+        font-style: italic;
+      }
+
+      dummy-app {
+        overflow: auto;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 10px;
+      }
+    </style>
 
     {{content-for "head-footer"}}
   </head>
@@ -20,6 +33,10 @@
     <script src="{{rootURL}}assets/vendor.js"></script>
     <script src="{{rootURL}}assets/dummy.js"></script>
 
+    <div class="grid">
+      <dummy-app></dummy-app>
+      <h2>Hello outside of the app</h2>
+    </div>
     {{content-for "body-footer"}}
   </body>
 </html>
