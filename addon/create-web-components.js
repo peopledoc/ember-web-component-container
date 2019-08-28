@@ -1,4 +1,5 @@
 import config from 'ember-get-config'
+import Ember from 'ember'
 
 let name = config.modulePrefix;
 
@@ -25,14 +26,27 @@ class ApplicationContainer extends HTMLElement {
     let rootParent = document.createElement('div')
     _appendStyles(rootParent, this.#styles)
     let rootElement = document.createElement('div')
+    rootElement.setAttribute('data-ember-root-element', Ember.guidFor(this))
     this.#shadowRoot.appendChild(rootParent)
     rootParent.appendChild(rootElement)
 
-    // Actually start the app
+  }
+
+  connectedCallback() {
+    if (this.#application || !this.isConnected) {
+      return
+    }
+
     let app = require(`${name}/app`).default.create({
-      rootElement
+      rootElement: this.#shadowRoot.querySelector(`[data-ember-root-element="${Ember.guidFor(this)}"]`)
     })
     this.#application = app
+  }
+
+  disconnectedCallback() {
+    if (!this.#application.isDestroyed && !this.#application.isDestroying) {
+      this.#application.destroy()
+    }
   }
 
   // That makes the application accessible via:
@@ -53,8 +67,6 @@ customElements.define(componentName, ApplicationContainer)
 /**
  * TODO
  *    RECOMMEND to remove export-application-global
- *    Allow for multiple instances (clean exportApplicationGlobal)
- *    Destruction of comonent <=> Destruction of the app
  *    Attributes and slots
  *    More isolation
  */
