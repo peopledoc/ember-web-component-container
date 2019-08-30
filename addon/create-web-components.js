@@ -22,6 +22,7 @@ class ApplicationContainer extends HTMLElement {
   constructor() {
     super()
     this.#shadowRoot = this.attachShadow({mode: 'closed'})
+
     // The 2 divs are a trick in how Ember finds their parent
     let rootParent = document.createElement('div')
     _appendStyles(rootParent, this.#styles)
@@ -30,8 +31,18 @@ class ApplicationContainer extends HTMLElement {
     this.#shadowRoot.appendChild(rootParent)
     rootParent.appendChild(rootElement)
 
+    // Handle inner config
+    let configSource = this.querySelector('[data-json-config]').textContent
+    let appConfig = JSON.parse(configSource)
+
+    // Handle attribute-based config
+    let attributes = [...this.attributes].reduce((acc, a)=> {
+      return {...acc, [a.nodeName]: a.nodeValue }
+    }, {})
+    config.appConfig = { ...appConfig, ...attributes }
   }
 
+  // Starts the app when an element is connected
   connectedCallback() {
     if (this.#application || !this.isConnected) {
       return
@@ -43,6 +54,7 @@ class ApplicationContainer extends HTMLElement {
     this.#application = app
   }
 
+  // Destroy the app on disconnection of the node
   disconnectedCallback() {
     if (!this.#application.isDestroyed && !this.#application.isDestroying) {
       this.#application.destroy()
