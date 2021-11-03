@@ -1,17 +1,25 @@
 {
   "name": "ember-web-component-container",
-  "version": "0.0.0",
   "description": "The default blueprint for ember-cli addons.",
-  "keywords": [
-    "ember-addon"
-  ],
-  "repository": "https://github.com/peopledoc/ember-web-component-container",
+  "version": "0.0.0",
   "license": "MIT",
-  "author": "",
-  "directories": {
-    "doc": "doc",
-    "test": "tests"
+  "author": {
+    "name": "PeopleDoc",
+    "url": "https://github.com/peopledoc"
   },
+  "homepage": "https://github.com/peopledoc/ember-web-component-container",
+  "repository": "https://github.com/peopledoc/ember-web-component-container",
+  "bugs": "https://github.com/peopledoc/ember-web-component-container/issues",
+  "keywords": [
+    "component",
+    "custom-element",
+    "ember",
+    "emberjs",
+    "ember-addon",
+    "web-component",
+    "web-components",
+    "wrapper"
+  ],
   "scripts": {
     "build": "ember build",
     "lint:hbs": "ember-template-lint .",
