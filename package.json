@@ -7,6 +7,7 @@
   ],
   "homepage": "https://github.com/peopledoc/ember-web-component-container",
   "repository": "https://github.com/peopledoc/ember-web-component-container",
+  "bugs": "https://github.com/peopledoc/ember-web-component-container/issues",
   "license": "MIT",
   "author": "",
   "directories": {
