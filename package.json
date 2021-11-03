@@ -5,6 +5,7 @@
   "keywords": [
     "ember-addon"
   ],
+  "homepage": "https://github.com/peopledoc/ember-web-component-container",
   "repository": "https://github.com/peopledoc/ember-web-component-container",
   "license": "MIT",
   "author": "",
