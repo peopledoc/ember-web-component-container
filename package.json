@@ -3,7 +3,14 @@
   "version": "0.0.0",
   "description": "The default blueprint for ember-cli addons.",
   "keywords": [
-    "ember-addon"
+    "component",
+    "custom-element",
+    "ember",
+    "emberjs",
+    "ember-addon",
+    "web-component",
+    "web-components",
+    "wrapper"
   ],
   "homepage": "https://github.com/peopledoc/ember-web-component-container",
   "repository": "https://github.com/peopledoc/ember-web-component-container",
